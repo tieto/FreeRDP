@@ -1,0 +1,104 @@
+freerdp2 (2.0.0~git20160503.1.f828595+dfsg1-1) UNRELEASED; urgency=medium
+
+  [ Bernhard Miklautz ]
+  * import git snapshot from upstream:
+    - Obtained from master branch of http://github.com/FreeRDP/FreeRDP.
+      Commit hash: f8285956097451f829d7da3455c45e3de39092e6
+  * integrate upstream changes
+    + new library libwinpr-tools
+  * debian/rules:
+    + build with WITH_CLIENT_INTERFACE=OFF this removes libxfreerdp-client
+  * debian/libfreerdp-shadow2.symbols
+    + remove symbols obsoleted by libwinpr-tools
+  * debian/control
+    + add dependency in libwinpr2-dev to libwinpr-tools2
+
+ -- Bernhard Miklautz <bernhard.miklautz@shacknet.at>  Tue, 03 May 2016 18:54:42 +0200
+
+freerdp2 (2.0.0~git20160502.1.a7ca42e+dfsg1-1) UNRELEASED; urgency=medium
+
+  [ Bernhard Miklautz ]
+  * import git snapshot from upstream:
+    - Obtained from master branch of http://github.com/FreeRDP/FreeRDP.
+      Commit hash: a7ca42ec17e545b90d6a08c84bd4967e8b472c01
+  * integrate upstream changes
+    - remove rdtk - not exported as library anymore
+  * debian/patches
+    - remove 1001_typo-fixes.patch - already upstream
+
+ -- Bernhard Miklautz <bernhard.miklautz@shacknet.at>  Mon, 02 May 2016 18:42:42 +0200
+
+freerdp2 (2.0.0~git20160317.1.75ae3f5+dfsg1-1) UNRELEASED; urgency=medium
+
+  [ Bernhard Miklautz ]
+  * Import git snapshot from upstream:
+    - Obtained from master branch of http://github.com/FreeRDP/FreeRDP.
+      Commit hash: 75ae3f58df5a14b4a67439aca96061a9c2ea5040
+  * Reflect upstream changes
+    - increase version numbers to 2 for rdtk and winpr
+  * debian/rules
+    + get-orig-source: don't add git refs in the generated ChangeLog
+
+  [ Mike Gabriel ]
+  * debian/control:
+    + Bump Standards: to 3.9.7. No changes needed.
+    + Make bin:pkg winpr-utils Priority: optional to match priority of
+      bin:pkg freerdp2-dev.
+    + Make bin:pkg winpr-utils Multi-Arch: foreign.
+    + freerdp2-shadow-x11 is not a debug package. Thus, dropping Section:
+      debug field.
+  * Split-off libxfreerdp-client.so.2.0.0 into its own bin:pkg.
+  * debian/*.symbols:
+    + Add .symbols files for all shared libraries.
+  * debian/freerdp2-x11.lintian-overrides:
+    + Override not required anymore.
+  * debian/libfreerdp-client2.install:
+    + Don't ship empty directory.
+  * debian/{freerdp2-dev.install,rules}:
+    + Don't install static libraries into dev:pkg freerdp2-dev.
+    + Ship libxfreerdp-client.so in freerdp2-dev bin:pkg.
+  * debian/patches:
+    + Add 1001_typo-fixes.patch. Provide spelling fixes in messages.
+
+ -- Bernhard Miklautz <bernhard.miklautz@shacknet.at>  Thu, 17 Mar 2016 11:42:03 +0000
+
+freerdp2 (2.0.0~git20160229.1.b4b8239+dfsg1-1) UNRELEASED; urgency=medium
+
+  * Import git snapshot from upstream:
+    - Obtained from master branch of http://github.com/FreeRDP/FreeRDP.
+      Commit hash: b4b8239bf642a6cc41b2558e55be1b44577aa5dd
+  * Enable wayland support
+    + Add package for libuwac (using wayland as a client)
+    + add package freerdp2-wayland
+  * Ship the shadowing libraries in an extra package
+    - libfreerdp-shadow2
+  * debian/control:
+    - Fix some typos and trailing white spaces
+
+ -- Bernhard Miklautz <bernhard.miklautz@shacknet.at>  Mon, 29 Feb 2016 16:50:52 +0000
+
+freerdp2 (2.0.0~git20160115.1.e2dbe5e+dfsg1-2) unstable; urgency=medium
+  [ Bernhard Miklautz]
+  * rename freerdp-x11 to freerdp2-x11 and
+    freerdp-shadow-x11 to freerdp2-shadow-x11
+  * freerdp2-dev: install missing files
+  * debian/control
+    + Use encrypted URLs for Vcs-*: field.
+    + Add B-D on dpkg-dev (>= 1.16.1.1) (required for buildflags.mk)
+  * debian/rules:
+    + Enable all hardening flags.
+
+  [ Jakub Adam]
+  * install missing files into libwinpr1-dev
+  * Use architecture-agnostic paths in debian/rules
+
+ -- Bernhard Miklautz <bernhard.miklautz@shacknet.at>  Tue, 23 Feb 2016 15:50:04 +0000
+
+freerdp2 (2.0.0~git20160115.1.e2dbe5e+dfsg1-1) unstable; urgency=medium
+
+  * Initial release
+  * Import git snapshot from upstream:
+    - Obtained from master branch of http://github.com/FreeRDP/FreeRDP.
+      Using commit hash: e2dbe5ee2db83b62a83ddf3c7cc45b5ed53f40b1
+
+ -- Bernhard Miklautz <bernhard.miklautz@shacknet.at>  Fri, 15 Jan 2016 17:40:33 +0100
